@@ -30,7 +30,7 @@ jobs:
 
   build-mac:
     name: macOS VST3 + AU
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
         with:
