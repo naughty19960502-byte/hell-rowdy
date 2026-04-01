@@ -28,12 +28,18 @@ juce_add_plugin(HellRowdy
     COPY_PLUGIN_AFTER_BUILD FALSE
 )
 
+juce_generate_juce_header(HellRowdy)
+
 target_sources(HellRowdy PRIVATE
     Source/PluginProcessor.cpp
     Source/PluginEditor.cpp
 )
 
 target_include_directories(HellRowdy PRIVATE Source)
+
+if(MSVC)
+    target_compile_options(HellRowdy PRIVATE /utf-8)
+endif()
 
 target_compile_definitions(HellRowdy PUBLIC
     JUCE_WEB_BROWSER=0
