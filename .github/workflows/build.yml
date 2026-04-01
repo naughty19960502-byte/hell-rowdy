@@ -48,19 +48,32 @@ jobs:
 
       - name: Permissions + Codesign
         run: |
-          find build \( -name "*.vst3" -o -name "*.component" \) | while read b; do
-            find "$b/Contents/MacOS" -type f -exec chmod +x {} \; 2>/dev/null || true
-            codesign --force --deep --sign - "$b" 2>/dev/null || true
+          # 実行権限の付与とアドホック署名
+          find build -name "*.vst3" -o -name "*.component" | while read -r bundle; do
+            echo "Processing $bundle..."
+            if [ -d "$bundle/Contents/MacOS" ]; then
+              find "$bundle/Contents/MacOS" -type f -exec chmod +x {} \;
+            fi
+            # アドホック署名を実行（--deep で内部バイナリも対象に）
+            codesign --force --deep --sign - "$bundle"
           done
 
       - name: Package
         run: |
           mkdir -p out
+          # スペースを含むファイル名に対応するため、引用符を適切に使用
           VST3=$(find build -name "Hell Rowdy.vst3" -type d | head -1)
           AU=$(find build -name "Hell Rowdy.component" -type d | head -1)
-          [ -n "$VST3" ] && (cd "$(dirname "$VST3")" && zip -ry ../../../../out/HellRowdy-vst3.zip "$(basename "$VST3")")
-          [ -n "$AU" ]   && (cd "$(dirname "$AU")"   && zip -ry ../../../../out/HellRowdy-au.zip   "$(basename "$AU")")
-          true
+          
+          if [ -n "$VST3" ]; then
+            echo "Packaging VST3: $VST3"
+            (cd "$(dirname "$VST3")" && zip -ry "../../../../out/HellRowdy-vst3.zip" "$(basename "$VST3")")
+          fi
+          
+          if [ -n "$AU" ]; then
+            echo "Packaging AU: $AU"
+            (cd "$(dirname "$AU")" && zip -ry "../../../../out/HellRowdy-au.zip" "$(basename "$AU")")
+          fi
 
       - name: Upload
         uses: actions/upload-artifact@v4
