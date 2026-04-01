@@ -56,10 +56,11 @@ jobs:
       - name: Package
         run: |
           mkdir -p out
-          VST3=$(find build -name "HellRowdy.vst3" -type d | head -1)
-          AU=$(find build -name "HellRowdy.component" -type d | head -1)
-          [ -n "$VST3" ] && (cd "$(dirname $VST3)" && zip -ry ../../../../out/HellRowdy-vst3.zip "HellRowdy.vst3")
-          [ -n "$AU" ]   && (cd "$(dirname $AU)"   && zip -ry ../../../../out/HellRowdy-au.zip   "HellRowdy.component")
+          VST3=$(find build -name "Hell Rowdy.vst3" -type d | head -1)
+          AU=$(find build -name "Hell Rowdy.component" -type d | head -1)
+          [ -n "$VST3" ] && (cd "$(dirname "$VST3")" && zip -ry ../../../../out/HellRowdy-vst3.zip "$(basename "$VST3")")
+          [ -n "$AU" ]   && (cd "$(dirname "$AU")"   && zip -ry ../../../../out/HellRowdy-au.zip   "$(basename "$AU")")
+          true
 
       - name: Upload
         uses: actions/upload-artifact@v4
