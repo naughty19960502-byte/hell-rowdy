@@ -28,6 +28,8 @@ juce_add_plugin(HellRowdy
     COPY_PLUGIN_AFTER_BUILD FALSE
 )
 
+juce_generate_juce_header(HellRowdy)
+
 target_sources(HellRowdy PRIVATE
     Source/PluginProcessor.cpp
     Source/PluginEditor.cpp
