@@ -1,0 +1,83 @@
+.menu-dialog{position:fixed;inset:0;width:100%;max-width:620px;height:100dvh;max-height:100dvh;margin:0 auto;padding:10px 22px calc(30px + env(safe-area-inset-bottom));border:0;background:linear-gradient(90deg,#080808 65%,#080808aa),url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/hero-bg.webp') right center/cover;overflow:auto}.menu-dialog::backdrop,.info-dialog::backdrop{background:#000d;backdrop-filter:blur(7px)}.menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.menu-top img{width:185px;height:62px;object-fit:contain}.close-button{width:44px;height:44px;font:32px Arial,sans-serif;background:transparent}.menu-dialog nav a{display:flex;align-items:center;gap:14px;min-height:76px}.menu-dialog nav img{width:44px;height:44px;object-fit:contain}.menu-dialog nav span{flex:1;font-size:21px;letter-spacing:1px}.menu-dialog nav small{display:block;font-size:14px;letter-spacing:0;color:var(--muted);margin-top:5px}.menu-dialog nav b{color:#946761}.menu-instagram{display:flex;align-items:center;gap:14px;width:100%;background:transparent;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:26px;padding:20px 0;position:relative}.menu-instagram.has-active img{content:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/icon-instagram-active.webp')}.menu-instagram img{width:24px;height:24px;object-fit:contain}.menu-instagram span{font-size:20px;letter-spacing:2px}.menu-instagram small{display:block;letter-spacing:0;margin-top:7px;font-size:14px}.menu-signature{text-align:center;font-size:12px;letter-spacing:1px;color:var(--muted);margin:28px 0}body:has(#info-dialog[open][data-kind=INSTAGRAM]) .instagram-button img, body:has(#info-dialog[open][data-kind=INSTAGRAM]) .menu-instagram img{content:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/icon-instagram-active.webp')}.menu-toggle.menu-toggle{background-image:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/menu-button.webp');background-size:contain;background-repeat:no-repeat;background-position:50%;border:none;width:50px;height:50px}.menu-toggle:hover, .menu-toggle:focus, .menu-toggle[aria-expanded="true"]{background-image:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/menu-button-active.webp')}.info-dialog{width:calc(100% - 36px);max-width:520px;border:1px solid #942027;padding:28px;background:#100b0b;color:var(--cream);box-shadow:0 0 80px #ad0a1930}.info-dialog .close-button{display:block;margin:-10px -10px 0 auto}.info-dialog h2{font-size:25px;font-weight:400;letter-spacing:1px;margin-top:10px}.info-dialog p{font-size:16px;line-height:1.9;white-space:pre-line;margin-bottom:10px}footer{text-align:center;padding:45px 20px 20px;max-width:920px;margin:auto;background:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/footer-bg.webp') center bottom/auto 65px no-repeat;color:#a88d81}footer p{font-size:13px;letter-spacing:2px;margin:0 0 10px}footer small{letter-spacing:3px;font-size:11px}body[data-route=home] main>footer{padding-bottom:55px}@keyframes orbit{from{transform:translateX(-50%) rotate(0)}to{transform:translateX(-50%) rotate(360deg)}}@keyframes float{50%{translate:0 -9px}}@keyframes embers{to{background-position:45px -181px,-25px -263px}}@media(min-width:700px){.header{height:69px;padding:6px 40px}.brand{width:200px}.hero{height:auto;min-height:700px}.hero-background{background-size:cover;background-position:center 58%}.hero-space{max-width:1100px;margin:auto}.hero-logo{width:405px;height:400px}.hero-copy{padding-top:20px;max-width:540px}.makyo-roman{margin-top:-5px}.hiroshima{font-size:25px}.essence{margin-top:20px}.bottom-nav{padding-left:max(20px,calc((100vw - 680px)/2));padding-right:max(20px,calc((100vw - 680px)/2))}.bottom-nav span{letter-spacing:.5px;transform:none}.section-hero{height:300px;padding:30px 50px}.section-hero h1{font-size:45px}.section-body{padding:30px 36px}.culture-card{height:280px}.member-image{height:300px}.menu-dialog{border-left:1px solid #432020;border-right:1px solid #432020}.page-cards button{height:155px}}@media(max-height:760px) and (max-width:699px){.hero{min-height:550px}.hero-copy{padding-top:0}.hero-logo{height:285px;width:295px}.essence{margin-top:17px}.red-rule{height:27px}.enter{margin-top:10px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.hero-space,.hero-copy{transform:none!important}.orbit{transform:translateX(-50%)}}
+/* Artwork sizing/state repair */
+footer{position:relative}
+.footer-motto{position:absolute;width:160px;height:34px;object-fit:contain;top:11px;left:50%;transform:translateX(-50%)}
+.footer-divider{position:absolute;width:min(90%,350px);height:12px;object-fit:contain;top:0;left:50%;transform:translateX(-50%)}
+.footer-seal{position:absolute;width:22px;height:26px;object-fit:contain;bottom:8px;right:8px}
+.hiroshima{width:248px;max-width:100%;height:auto;flex-shrink:0}
+.hiroshima img{width:100%;height:auto;object-fit:contain;display:block}
+.essence{width:230px;height:auto;flex-shrink:0}
+.essence img{width:100%;height:auto;object-fit:contain;display:block}
+.enter img{width:240px;height:auto;display:block;object-fit:contain}
+.header .instagram-button img{width:36px;height:36px;object-fit:contain}
+.menu-instagram img{width:44px;height:44px;object-fit:contain}
+.header .instagram-button:hover img,.header .instagram-button:focus-visible img,.menu-instagram:hover img,.menu-instagram:focus-visible img{content:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/icon-instagram-active.webp')}
+
+
+/* Layout */
+.header{height:68px;padding:0 15px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:100}
+.header .brand img{height:68px}
+.header-actions{display:flex;align-items:center;gap:8px;height:68px}
+.bottom-nav a{color:#827b74}
+.bottom-nav .active img{filter:none; opacity:1}
+.bottom-nav a:not(.active) img{opacity:.4}
+.member-image{filter:grayscale(.8) brightness(.8)}
+body[data-route=history] .section-hero{height:138px;padding:0 22px 14px;background-position:center 18%}
+body[data-route=history] .section-hero h1{font-size:27px;margin-bottom:5px}
+body[data-route=history] .section-hero p{font-size:14px}
+body[data-route=history] .section-body{padding:16px 22px}
+body[data-route=history] .timeline{padding-left:18px}
+body[data-route=history] .timeline-dot{left:-25px;width:10px;height:10px}
+body[data-route=history] .timeline-item{margin-bottom:17px}
+body[data-route=history] .year{font-size:19px}
+body[data-route=history] .timeline h2{font-size:16px;line-height:1.3;margin-bottom:7px}
+body[data-route=history] .event summary{height:59px;padding:0 10px}
+body[data-route=history] .event img{opacity:.38}
+@media(min-width:700px){body[data-route=history] .section-hero{height:174px;padding:0 50px 18px}body[data-route=history] .section-hero h1{font-size:34px}}
+
+/* HERO-only scene: artwork stays in its original layout slot. */
+.hero{perspective:1000px;touch-action:pan-y}
+.hero-space{transform:none!important;will-change:auto;perspective:1000px}
+.hero-copy{position:relative;transform:none!important;pointer-events:none}
+.hero-copy>.makyo-roman,.hero-copy>.hiroshima,.hero-copy>.essence,.hero-copy>.red-rule,.hero-copy>.enter{position:relative;z-index:11}
+.hero-copy>.enter{pointer-events:auto}
+.hero-logo-slot{position:relative;width:min(88vw,365px);height:min(86vw,358px);flex-shrink:0;z-index:6;perspective:900px}
+.depth-layer{position:absolute;inset:0;pointer-events:none;will-change:transform;transform-origin:50% 30%}
+.hero-logo-slot .hero-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.depth-landscape{z-index:0}.depth-background-fog{z-index:1}.depth-ring03{z-index:2}.depth-ring02{z-index:3}.depth-ring01{z-index:4}
+.depth-emblem{z-index:5}.depth-logo{z-index:6}.depth-foreground-smoke{z-index:7}.depth-foreground-rocks{z-index:8}
+.letter-art{clip-path:polygon(7% 27%,42% 20%,53% 41%,88% 35%,96% 77%,63% 84%,48% 70%,11% 71%)}
+.emblem-art{clip-path:polygon(evenodd,0 0,100% 0,100% 100%,0 100%,0 0,7% 27%,42% 20%,53% 41%,88% 35%,96% 77%,63% 84%,48% 70%,11% 71%,7% 27%,0 0)}
+.logo-float{position:absolute;inset:0;animation:logo-breathe 13s ease-in-out infinite}
+.ring01-art{animation:orbit 120s linear infinite}
+.ring02-art{top:9%;width:56%;opacity:.23;animation:orbit 170s linear infinite reverse}
+.ring03-art{top:8%;width:64%;opacity:.065;animation:orbit 220s linear infinite}
+.fog-art,.smoke-art{position:absolute;inset:0;background:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/hero-bg.webp') center 55%/cover;filter:grayscale(.65) brightness(.5) blur(7px);opacity:.045;mask-image:linear-gradient(transparent,#0006 30%,#000 60%,transparent)}
+.smoke-art{filter:grayscale(.8) brightness(.55) blur(4px);opacity:.055;mask-image:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000)}
+.hero-blackout{position:absolute;inset:0;z-index:15;background:#080808;opacity:0;pointer-events:none}
+.hero-coordinate{z-index:12}
+@keyframes logo-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@media(min-width:700px){.hero-logo-slot{width:405px;height:400px}}
+@media(max-height:760px) and (max-width:699px){.hero-logo-slot{height:285px;width:295px}}
+@media(prefers-reduced-motion:reduce){.depth-layer{transform:none!important;will-change:auto}.hero-blackout{opacity:0!important}}
+
+/* Lift the baked background ring out of the landscape without repainting it. */
+.depth-landscape .hero-background{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent),linear-gradient(transparent,#000 8%,#000 88%,transparent),radial-gradient(ellipse 50% 31% at 50% 33%,#000 45%,transparent 48%,transparent 98%,#000 100%);mask-composite:intersect,intersect}
+.ring03-spin{position:absolute;inset:0;transform-origin:50% 35.72%;animation:deep-ring-orbit 220s linear infinite}
+.ring03-landscape{position:absolute;inset:0;background:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/hero-bg.webp') center 55%/cover no-repeat;filter:brightness(.64) saturate(.78);transform:scale(.84);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent),linear-gradient(transparent,#000 8%,#000 88%,transparent),radial-gradient(ellipse 50% 31% at 50% 33%,transparent 45%,#000 48%,#000 98%,transparent 100%);mask-composite:intersect,intersect}
+.ring03-landscape:after{content:'';position:absolute;inset:0;background:linear-gradient(#0001 0%,#0000 38%,#0007 70%,#08080822)}
+@keyframes deep-ring-orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+
+/* Controls */
+.enter{position:relative;isolation:isolate;min-width:280px;flex-shrink:0}.enter>span{position:relative;z-index:1}
+.enter::before,.enter::after{content:'';position:absolute;top:2px;width:15px;height:54px;z-index:0;pointer-events:none;border-block:1px solid #c06464;background:none;box-shadow:0 0 9px #d8122433;transition:border-color .25s,filter .25s;}
+.enter::before{left:4px;border-left:2px solid #e7293c;transform:skewY(-12deg)}
+.enter::after{right:4px;border-right:2px solid #e7293c;transform:skewY(12deg)}
+.enter:hover::before,.enter:hover::after,.enter:focus-visible::before,.enter:focus-visible::after{border-color:#ff7c86;filter:drop-shadow(0 0 5px #e7293c)}
+.filters button{position:relative}
+.filters button::before{content:'';position:absolute;inset:0;background:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/filter-surface-v2.webp') center/100% 100% no-repeat;pointer-events:none}
+.filters button[aria-pressed=true]::before{filter:sepia(1) saturate(8) hue-rotate(320deg) brightness(1.2)}
+.page-cards b{font-size:0;width:100px;max-width:30%;height:24px;background:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/more-button.webp') center/contain no-repeat}
+.page-cards [data-page=MEDIA] b{background-image:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/play-button.webp');width:32px;height:32px;max-width:none}
+

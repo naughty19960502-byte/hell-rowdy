@@ -1,0 +1,6 @@
+.hero-logo-v3{width:min(93vw,430px);height:min(96vw,420px);object-fit:contain;filter:drop-shadow(0 12px 19px #000d) drop-shadow(0 0 12px #970b18)}
+.hiroshima{width:100%;max-width:390px;text-align:center;font-family:Georgia,'Times New Roman','Yu Mincho',serif;font-size:clamp(24px,7vw,34px);line-height:1.2;letter-spacing:4px;text-shadow:0 2px 8px #000;color:#f0e5d9}
+.essence{width:100%;text-align:center;padding-left:6px;font-family:Georgia,'Times New Roman',serif;font-size:15px;letter-spacing:6px;color:#ebe0d5;text-shadow:0 2px 8px #000}
+.enter>span{font-family:Georgia,'Times New Roman',serif;font-size:17px;letter-spacing:2px;text-shadow:0 2px 6px #000}
+@media(min-width:700px){.hero-logo-v3{width:460px;height:450px}}
+@media(max-height:760px) and (max-width:699px){.hero-logo-v3{width:315px;height:310px}}

@@ -1,0 +1,78 @@
+/* Separate stacking contexts keep atmosphere behind every MAKYO artwork part. */
+.hero-space{z-index:0;isolation:isolate;overflow:hidden}
+.hero-copy{z-index:10;isolation:isolate;transform-style:flat}
+.vortex-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:9;pointer-events:none;opacity:0}
+/* The logo is one complete image; no cutout boundaries can separate. */
+.hero-logo-slot .hero-logo{clip-path:none}
+/* Atmosphere lives inside hero-space, behind all logo and title artwork. */
+.hero-particles,.infernal-smoke{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-particles{z-index:8}
+.hero-particle{position:absolute;bottom:-20px;pointer-events:none;border-radius:20% 65% 35% 45%;opacity:0;background:var(--tone);filter:blur(.45px);will-change:transform,opacity;animation:infernal-rise var(--duration) linear infinite;animation-delay:var(--delay)}
+@keyframes infernal-rise{
+  0%{transform:translate3d(0,0,0) rotate(0deg);opacity:0}
+  10%{opacity:.4}
+  30%{transform:translate3d(calc(var(--drift)*-.35),-280px,0) rotate(70deg);opacity:.3}
+  60%{transform:translate3d(calc(var(--drift)*.7),-600px,0) rotate(160deg);opacity:.4}
+  85%{opacity:.18}
+  100%{transform:translate3d(var(--drift),-1100px,0) rotate(240deg);opacity:0}
+}
+.infernal-smoke{z-index:7;mask-image:linear-gradient(90deg,#000,#0008 30%,#0004 50%,#0008 70%,#000);-webkit-mask-image:linear-gradient(90deg,#000,#0008 30%,#0004 50%,#0008 70%,#000)}
+.smoke-plume{position:absolute;left:var(--left);bottom:-220px;width:240px;height:360px;border-radius:45%;background:radial-gradient(ellipse at 28% 70%,rgba(var(--veil),.5),transparent 53%),radial-gradient(ellipse at 65% 42%,rgba(var(--veil),.42),transparent 52%),radial-gradient(ellipse at 42% 20%,rgba(var(--veil),.3),transparent 46%);filter:blur(12px);mix-blend-mode:normal;opacity:0;will-change:transform,opacity;animation:smoke-rise var(--duration) ease-in-out infinite;animation-delay:var(--delay)}
+@keyframes smoke-rise{
+  0%{transform:translate3d(0,0,0) rotate(-12deg) scale(.65);opacity:0}
+  18%{opacity:.35}
+  45%{transform:translate3d(calc(var(--drift)*-.4),-330px,0) rotate(13deg) scale(1.1);opacity:.5}
+  75%{transform:translate3d(var(--drift),-650px,0) rotate(-8deg) scale(1.45);opacity:.25}
+  100%{transform:translate3d(calc(var(--drift)*.5),-1050px,0) rotate(20deg) scale(1.7);opacity:0}
+}
+@media(max-width:699px){.smoke-plume{width:190px;height:300px;filter:blur(9px)}}
+@media(prefers-reduced-motion:reduce){.vortex-canvas{display:none}.hero-particle,.smoke-plume{animation:none!important;opacity:0;will-change:auto}}
+
+/* HISTORY uses independent artwork layers around a procedural particle field. */
+body[data-route=history] .section-hero.history-header{height:190px;padding:18px 22px;background:none;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end}
+.history-header::before,.history-header::after{display:none}
+.history-header>.history-background{position:absolute;inset:-14px;z-index:0;background:linear-gradient(90deg,#0006,transparent 80%),url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/history-header-bg.webp') center/cover;transform:translate(var(--hx,0px),var(--hy,0px)) scale(1.04)}
+.history-header>.history-ring-anchor{position:absolute;width:270px;right:-38px;top:50%;z-index:1;transform:translate(calc(var(--hx,0px)*-1),calc(-50% + var(--hy,0px)*.7));pointer-events:none}
+.history-ring{display:block;width:100%;height:auto;animation:history-orbit 120s linear infinite;animation-play-state:paused}
+.history-header>.vortex-canvas{z-index:2;opacity:.8}
+.history-header>.history-heading{position:relative;z-index:3;width:100%;pointer-events:none}
+.chaos-background-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none}
+body[data-route=history] .history-heading h1{margin:0;width:75%;max-width:510px;line-height:0}
+.history-heading h1 img{display:block;width:100%;height:auto;filter:drop-shadow(0 2px 6px #000)}
+body[data-route=history] .history-heading p{position:relative;margin:0;font-size:14px;line-height:1.6;letter-spacing:.1em;color:#eee4da;text-shadow:0 2px 5px #000}
+.header-running .history-ring{animation-play-state:running}
+.history-fracture-ready .history-ring{visibility:hidden;animation:none}
+.history-fracture-ready>.vortex-canvas{display:block}
+@keyframes history-orbit{to{transform:rotate(360deg)}}
+@media(min-width:700px){body[data-route=history] .section-hero.history-header{height:230px;padding:22px 50px}.history-ring-anchor{width:350px;right:20px}body[data-route=history] .history-heading p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.history-ring{animation:none}.history-background,.history-ring-anchor{will-change:auto}}
+.section-hero.animated-section{height:235px;isolation:isolate;background:none;overflow:hidden;padding:0 22px 24px}
+.animated-section::before,.animated-section::after{display:none}
+.animated-section>.section-background{position:absolute;inset:-14px;z-index:0;background:linear-gradient(90deg,#0006,transparent 80%),var(--section-art) center/cover;transform:translate(var(--sx,0px),var(--sy,0px)) scale(1.04)}
+.section-atmosphere{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.animated-section>.section-gate{position:absolute;inset:-8px;z-index:2;pointer-events:none;transform:translate(calc(var(--sx,0px)*-.65),calc(var(--sy,0px)*-.45))}
+.section-gate img{width:100%;height:100%;object-fit:contain;object-position:70% 25%;opacity:.85;filter:drop-shadow(0 0 4px #9b132a33)}
+.animated-section>.section-heading{position:relative;z-index:3;width:100%;text-shadow:0 2px 7px #000,0 0 14px #000}
+.animated-section .section-heading h1{font-size:clamp(27px,7.7vw,36px);letter-spacing:.065em;line-height:1.25;margin:0 0 12px}
+.animated-section .section-heading p{font-size:16px;line-height:1.7;margin:0}
+.culture-scene .section-gate{opacity:.8}
+.about-scene .section-heading h1,.culture-scene .section-heading h1,.member-scene .section-heading h1{width:100%;max-width:600px;line-height:0;margin:0 0 8px}
+.culture-scene .section-heading h1,.member-scene .section-heading h1{width:90%;max-width:500px}
+.section-title-art{display:block;width:100%;height:auto;filter:drop-shadow(0 2px 6px #000)}
+.animated-section>.section-heading{transform:translate(calc(var(--sx,0px)*-.3),calc(var(--sy,0px)*-.2))}
+@media(min-width:700px){.section-hero.animated-section{height:300px;padding:30px 50px}.animated-section .section-heading h1{font-size:45px}.section-gate img{object-position:80% 20%}}
+@media(prefers-reduced-motion:reduce){.section-atmosphere{display:none}}
+.animated-section>.section-mist-layer{position:absolute;left:-70px;right:-70px;z-index:1;pointer-events:none;background:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/culture-fog-layer.webp') center/cover no-repeat;filter:blur(2px);will-change:transform,opacity}
+.animated-section>.section-ground-fog{bottom:-35px;height:78%;mix-blend-mode:screen;animation:ground-fog-drift 16s ease-in-out infinite alternate}
+.animated-section>.section-clouds{top:-30px;height:62%;filter:brightness(calc(.26 + var(--lightning,0)*2)) sepia(.6) saturate(2) hue-rotate(315deg) blur(3px);animation:storm-cloud-drift 23s ease-in-out infinite alternate}
+.animated-section>.section-sky-lightning{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:var(--lightning,0);mix-blend-mode:screen;background:radial-gradient(ellipse at var(--lightning-x,65%) 12%,#f1dfffcc, #c4a4dd99 40%,transparent 85%);mask-image:linear-gradient(#000 0%,#000 25%,transparent 72%);-webkit-mask-image:linear-gradient(#000 0%,#000 25%,transparent 72%)}
+.atmosphere-paused>.section-mist-layer{animation-play-state:paused}
+@keyframes ground-fog-drift{from{transform:translate3d(-52px,8px,0) scale(1.12);opacity:.42}to{transform:translate3d(52px,-10px,0) scale(1.04);opacity:.62}}
+@keyframes storm-cloud-drift{from{transform:translate3d(40px,-6px,0) scaleX(-1) scale(1.1);opacity:.5}to{transform:translate3d(-40px,9px,0) scaleX(-1) scale(1.18);opacity:.72}}
+@media(prefers-reduced-motion:reduce){.animated-section>.section-mist-layer{animation:none;opacity:.3;will-change:auto}}
+
+.page-scene>.section-background{background-color:#090508}
+.page-scene .section-heading h1{width:75%;max-width:390px;line-height:0;margin:0 0 8px}
+.page-scene>.section-ground-fog{filter:brightness(.35) blur(2px)}
+
+.page-title-fragments{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
