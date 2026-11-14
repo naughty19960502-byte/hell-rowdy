@@ -8,6 +8,28 @@ const img=(name,cls='',alt='')=>`<img class="${cls}" src="https://hiroshimakrump
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let active='home', filter='ALL', lastFocus=null, motionCleanup=()=>{};
 const homeIcon=img('icon-home');
+// After the first screen settles, warm the section-header art in the background.
+// This makes HISTORY / ABOUT / CULTURE etc. appear immediately on navigation.
+const sectionAssets=[
+  'history-header-bg.webp','history-header-ring.webp','history-header-title.webp',
+  'about-burning-scene.webp','about-header-title.webp',
+  'culture-header-scene.webp','culture-header-title.webp',
+  'member-header-scene-v2.webp','member-header-title.webp',
+  'page-header-scene.webp','page-header-title-v2.webp',
+  'philosophy-moon-header-v1.png','philosophy-title-v1.png','culture-fog-layer.webp'
+];
+function warmSectionAssets(){
+  const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+  if(connection?.saveData||/2g/.test(connection?.effectiveType||''))return;
+  const add=()=>sectionAssets.forEach(file=>{
+    const link=document.createElement('link');
+    link.rel='prefetch';link.as='image';
+    link.href='https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/'+file;
+    document.head.appendChild(link);
+  });
+  if('requestIdleCallback' in window)requestIdleCallback(add,{timeout:2500});
+  else setTimeout(add,1500);
+}
 document.querySelector('#bottom-nav').innerHTML=routes.map(([id,title,,icon])=>`<a href="#${id}" data-nav="${id}" aria-label="${title}">${icon?img('icon-'+icon):homeIcon}<span>${title==='ABOUT KRUMP'?'ABOUT':title}</span></a>`).join('');
 const menuLinks=document.querySelector('#menu-links');
 function renderMenuLinks(){if(menuLinks.dataset.ready)return;menuLinks.innerHTML=routes.slice(1).map(([id,title,sub,icon])=>`<a href="#${id}">${img('icon-'+icon)}<span>${title}<small>${sub}</small></span><b>›</b></a>`).join('');menuLinks.dataset.ready='1';}
@@ -34,4 +56,4 @@ const renderers={home:renderHome,history:renderHistory,about:renderAbout,culture
 function navigate(){const hash=location.hash.slice(1);if(hash==='main')return;active=Object.hasOwn(renderers,hash)?hash:'home';motionCleanup();main.innerHTML=renderers[active]()+`<footer><img loading="lazy" decoding="async" src="https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/motto.webp" alt="" class="footer-motto"><img loading="lazy" decoding="async" src="https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/divider.webp" alt="" class="footer-divider"><img loading="lazy" decoding="async" src="https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/seal.webp" alt="" class="footer-seal"><p>魔境 / HIROSHIMA KRUMP</p><small>RAW ESSENSE</small></footer>`;document.querySelectorAll('[data-nav]').forEach(a=>{a.classList.toggle('active',a.dataset.nav===active);if(a.dataset.nav===active){a.querySelector('img').src='https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/icon-'+a.dataset.nav+'-active.webp';a.setAttribute('aria-current','page');}else{a.querySelector('img').src='https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/icon-'+a.dataset.nav+'.webp';a.removeAttribute('aria-current');}});document.body.dataset.route=active;document.title=active==='home'?'魔境 | HIROSHIMA KRUMP':`${routes.find(r=>r[0]===active)[1]} | 魔境`;window.scrollTo(0,0);if(active==='home')bindMotion();else if(active==='history')motionCleanup=bindHistoryHeader(document.querySelector('.history-header'),reduced);else if(active==='about'||active==='culture'||active==='member'||active==='page'||active==='philosophy')motionCleanup=bindSectionHeader(document.querySelector('.animated-section'),reduced)}
 main.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.filter){filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.filter===filter));document.querySelector('#member-cards').innerHTML=memberCards();}if(b.dataset.culture){const c=cultures.find(c=>c[0]===b.dataset.culture);showInfo(c[0]+' / '+c[1],c[3]+'\n\n'+c[4]);}if(b.dataset.member){const m=members.find(m=>m.name===b.dataset.member);showInfo(m.name,m.detail+'\n\nプロフィール写真は準備中です。');}if(b.dataset.page){const p=pages.find(p=>p[0]===b.dataset.page);showInfo(p[3],p[4]);}});
 function bindMotion(){motionCleanup=bindHeroMotion(document.querySelector('.hero'),reduced);}
-window.addEventListener('hashchange',navigate);navigate();
+window.addEventListener('hashchange',navigate);navigate();warmSectionAssets();
