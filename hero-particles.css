@@ -31,7 +31,7 @@
 /* HISTORY uses independent artwork layers around a procedural particle field. */
 body[data-route=history] .section-hero.history-header{height:190px;padding:18px 22px;background:none;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end}
 .history-header::before,.history-header::after{display:none}
-.history-header>.history-background{position:absolute;inset:-14px;z-index:0;background:linear-gradient(90deg,#0006,transparent 80%),url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/history-header-bg.webp') center/cover;transform:translate(var(--hx,0px),var(--hy,0px)) scale(1.04)}
+.history-header>.history-background{position:absolute;inset:-14px;z-index:0;background:linear-gradient(90deg,#0006,transparent 80%),url('assets/history-header-bg.webp') center/cover;transform:translate(var(--hx,0px),var(--hy,0px)) scale(1.04)}
 .history-header>.history-ring-anchor{position:absolute;width:270px;right:-38px;top:50%;z-index:1;transform:translate(calc(var(--hx,0px)*-1),calc(-50% + var(--hy,0px)*.7));pointer-events:none}
 .history-ring{display:block;width:100%;height:auto;animation:history-orbit 120s linear infinite;animation-play-state:paused}
 .history-header>.vortex-canvas{z-index:2;opacity:.8}
@@ -62,7 +62,7 @@ body[data-route=history] .history-heading p{position:relative;margin:0;font-size
 .animated-section>.section-heading{transform:translate(calc(var(--sx,0px)*-.3),calc(var(--sy,0px)*-.2))}
 @media(min-width:700px){.section-hero.animated-section{height:300px;padding:30px 50px}.animated-section .section-heading h1{font-size:45px}.section-gate img{object-position:80% 20%}}
 @media(prefers-reduced-motion:reduce){.section-atmosphere{display:none}}
-.animated-section>.section-mist-layer{position:absolute;left:-70px;right:-70px;z-index:1;pointer-events:none;background:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/culture-fog-layer.webp') center/cover no-repeat;filter:blur(2px);will-change:transform,opacity}
+.animated-section>.section-mist-layer{position:absolute;left:-70px;right:-70px;z-index:1;pointer-events:none;background:url('assets/culture-fog-layer.webp') center/cover no-repeat;filter:blur(2px);will-change:transform,opacity}
 .animated-section>.section-ground-fog{bottom:-35px;height:78%;mix-blend-mode:screen;animation:ground-fog-drift 16s ease-in-out infinite alternate}
 .animated-section>.section-clouds{top:-30px;height:62%;filter:brightness(calc(.26 + var(--lightning,0)*2)) sepia(.6) saturate(2) hue-rotate(315deg) blur(3px);animation:storm-cloud-drift 23s ease-in-out infinite alternate}
 .animated-section>.section-sky-lightning{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:var(--lightning,0);mix-blend-mode:screen;background:radial-gradient(ellipse at var(--lightning-x,65%) 12%,#f1dfffcc, #c4a4dd99 40%,transparent 85%);mask-image:linear-gradient(#000 0%,#000 25%,transparent 72%);-webkit-mask-image:linear-gradient(#000 0%,#000 25%,transparent 72%)}
