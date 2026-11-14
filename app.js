@@ -41,7 +41,8 @@ menu.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
 function showInfo(title,text){lastFocus=document.activeElement;document.querySelector('#info-title').textContent=title;document.querySelector('#info-text').textContent=text;info.dataset.kind=title;info.showModal();}
 document.querySelector('#info-close').addEventListener('click',()=>info.close());
 info.addEventListener('close',()=>lastFocus?.focus());
-document.querySelectorAll('[data-instagram]').forEach(b=>b.addEventListener('click',()=>showInfo('INSTAGRAM','正式なアカウントリンクは準備中です。')));
+const INSTAGRAM_URL='https://www.instagram.com/hiroshimastreetkrump/';
+document.querySelectorAll('[data-instagram]').forEach(b=>b.addEventListener('click',()=>window.open(INSTAGRAM_URL,'_blank','noopener,noreferrer')));
 function heading(route,bg){const r=routes.find(r=>r[0]===route);if(route==='history')return historyHeaderMarkup(r[2]);if(route==='about'||route==='culture'||route==='member'||route==='page'||route==='philosophy')return sectionHeaderMarkup(route,r[1],r[2]);return `<div class="section-hero" style="--section-art:url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/${bg}.webp')"><div><h1>${r[1]}</h1><p>${r[2]}</p></div></div>`;}
 function disclosure(title,sub,text){return `<details class="disclosure"><summary><span>${title}<small>${sub}</small></span><b aria-hidden="true">+</b></summary><div class="disclosure-text">${text}</div></details>`;}
 function renderHome(){return `<section class="hero" aria-label="魔境への入口">${sceneMarkup()}<div class="hero-copy">${logoMarkup()}<h1 class="hiroshima">HIROSHIMA KRUMP</h1><p class="essence">RAW ESSENSE</p><span class="red-rule"></span><a class="enter" href="#page" aria-label="GO TO INFORMATION 情報ページを見る"><span>GO TO<br>INFORMATION</span><i aria-hidden="true">⌄</i></a></div><p class="hero-coordinate">HIROSHIMA, JAPAN / 34.3853° N</p></section>`;}
