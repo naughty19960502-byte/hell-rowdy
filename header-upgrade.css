@@ -1,5 +1,5 @@
 /* Home header: one high-resolution surface, not a second hero section. */
-.header{height:76px;padding:4px 14px;background:#070707 url('https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/header-obsidian-v2.png') center/cover no-repeat;border-bottom:1px solid #721c20;box-shadow:0 7px 22px #000c}
+.header{height:76px;padding:4px 14px;background:#070707 url('assets/header-obsidian-v2.webp') center/cover no-repeat;border-bottom:1px solid #721c20;box-shadow:0 7px 22px #000c}
 .header::after{content:'';position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,#de1f27 20%,#6c1218 52%,#de1f27 80%,transparent);opacity:.8}
 .header .brand{position:relative;width:212px;max-width:62%;height:68px;filter:drop-shadow(0 2px 7px #000) drop-shadow(0 0 4px #8e1016)}
 .header .brand::before{content:'';position:absolute;inset:7px -9px;background:radial-gradient(ellipse at 25% 50%,#d8182417,transparent 70%);pointer-events:none}
