@@ -16,7 +16,7 @@ const sectionAssets=[
   'culture-header-scene.webp','culture-header-title.webp',
   'member-header-scene-v2.webp','member-header-title.webp',
   'page-header-scene.webp','page-header-title-v2.webp',
-  'philosophy-moon-header-v1.png','philosophy-title-v1.png','culture-fog-layer.webp'
+  'philosophy-moon-header-v1.webp','philosophy-title-v1.webp','culture-fog-layer.webp'
 ];
 function warmSectionAssets(){
   const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
@@ -24,7 +24,7 @@ function warmSectionAssets(){
   const add=()=>sectionAssets.forEach(file=>{
     const link=document.createElement('link');
     link.rel='prefetch';link.as='image';
-    link.href='https://hiroshimakrumpmakyo.yoko2528.chatgpt.site/assets/'+file;
+    link.href='assets/'+file;
     document.head.appendChild(link);
   });
   if('requestIdleCallback' in window)requestIdleCallback(add,{timeout:2500});
